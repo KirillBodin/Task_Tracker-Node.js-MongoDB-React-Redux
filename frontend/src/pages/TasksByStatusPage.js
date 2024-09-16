@@ -160,9 +160,10 @@ const TasksByStatusPage = () => {
                                             },
                                         }}
                                     >
-                                        <ListItem>
+                                        <ListItem sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
                                             <TaskItem task={task} /> {/* Display task item / Відображаємо елемент завдання */}
-                                            <FormControl sx={{ marginLeft: 2, minWidth: 200 }}>
+
+                                            <FormControl sx={{ marginTop: 2, minWidth: 200 }}>
                                                 <InputLabel id={`select-project-label-${task._id}`}>Project</InputLabel>
                                                 <Select
                                                     labelId={`select-project-label-${task._id}`}
@@ -180,11 +181,12 @@ const TasksByStatusPage = () => {
                                                     ))}
                                                 </Select>
                                             </FormControl>
+
                                             <Button
                                                 variant="contained"
                                                 onClick={() => handleAssignTaskToProject(task._id)}
                                                 sx={{
-                                                    marginLeft: 2,
+                                                    marginTop: 2,
                                                     backgroundColor: theme.palette.primary.main,
                                                     color: '#fff',
                                                     '&:hover': {
@@ -196,7 +198,7 @@ const TasksByStatusPage = () => {
                                             </Button>
 
                                             {/* Start Date and End Date Editing / Редагування дати початку та завершення */}
-                                            <Box sx={{ marginLeft: 2, display: 'flex', gap: 2 }}>
+                                            <Box sx={{ marginTop: 2, display: 'flex', gap: 2 }}>
                                                 <DatePicker
                                                     label="Start Date"
                                                     value={task.startDate ? moment(task.startDate) : null}
